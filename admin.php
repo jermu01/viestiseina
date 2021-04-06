@@ -9,7 +9,6 @@ if (!isset($_SESSION['logged_in'])){
 <?php include_once 'layout/nav.inc.php'; ?>
 
 
-
 <div class="jumbotron">
     <h1 class="display-3">Welcome to your post page!</h1>
     <?php if (isset($_SESSION['logged_in'])): ?>
@@ -30,7 +29,7 @@ if (!isset($_SESSION['logged_in'])){
 <br><br>
 
 <div id="post" style="display:none">
-<form method="post">
+  <form method="POST" action="upload.php" enctype="multipart/form-data">
       <fieldset>
         <legend>Make post</legend>
         <div class="form-group">
@@ -43,11 +42,10 @@ if (!isset($_SESSION['logged_in'])){
         </div>
         <div class="form-group">
             <label for="exampleTextarea">Text</label>
-            <textarea class="form-control" rows="3" placeholder="Text"></textarea>
-            <br>
-            <form action="upload.php" method="POST" enctype="multipart/form-data">
+            <textarea class="form-control" name="text" rows="3" placeholder="Text"></textarea>
+            <br><br>
             <input type="file" name="file" class="btn btn-primary">
-        </div>
+            <br><br>
         <button type="submit" name="submit" class="btn btn-primary">Submit your post</button>
       </fieldset>
       </form>
