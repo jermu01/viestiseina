@@ -11,7 +11,7 @@
 
   <form name="login">
       <fieldset>
-        <legend>Login</legend>
+        <legend>Admin Login</legend>
         <div class="form-group">
           <label for="username">Username</label>
           <input name="username" type="text" class="form-control" placeholder="Username">

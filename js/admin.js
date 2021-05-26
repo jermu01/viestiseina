@@ -56,7 +56,6 @@ function postAction(event){
 
   // Edit
   if (event.target.classList.contains('edit')) {
-    alert('Edit ' + postId);
     window.location.href = "edit.php?id=" + postId;
   }
 }

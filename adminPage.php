@@ -37,6 +37,6 @@ if (!isset($_SESSION['logged_in'])){
 </div>
 
 <script src="js/systemAdmin.js"></script>
-<script src="js/allPostAdmin.js"></script>
+
 
 <?php include_once 'layout/bottom.inc.php'; ?>

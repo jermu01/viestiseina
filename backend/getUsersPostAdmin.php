@@ -2,18 +2,6 @@
 
 session_start();
 
-if ($_SESSION['user_id']){
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = false;
-}
-
-if (!$user_id){
-    $data = array(
-        'error' => 'You are not logged in!'
-    );
-} else {
-
     include_once 'pdo-connect.php';
 
     try {
@@ -28,6 +16,5 @@ if (!$user_id){
         );
     }
 
-}
 
 echo json_encode($data, JSON_UNESCAPED_UNICODE);

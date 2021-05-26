@@ -13,7 +13,7 @@
             <?php endif; ?>
             <?php if (isset($_SESSION['logged_in'])): ?>
               <li class="nav-item">
-              <a class="nav-link" href="allpostadmin.php">All Posts</a>
+              <a class="nav-link" href="allPostAdmin.php">All Posts</a>
             </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['logged_in'])): ?>
