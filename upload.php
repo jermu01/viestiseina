@@ -1,33 +1,42 @@
-
 <?php
-if (isset($_POST['submit'])) {
-    $file = $_FILES['file'];
 
-    $fileName = $_FILES['file']['name'];
-    $fileTmpName = $_FILES['file']['tmp_name'];
-    $fileSize = $_FILES['file']['size'];
-    $fileError = $_FILES['file']['error'];
-    $fileType = $_FILES['file']['type'];
+session_start();
 
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
 
-    $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+include_once 'backend/pdo-connect.php';
 
-    if (in_array($fileActualExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 5000000) {
-                $fileNameNew = uniqid('', true).".".$fileActualExt;
-                $fileDestination = 'uploads/'.$fileNameNew;
-                move_uploaded_file($fileTmpName, $fileDestination);
-            header("location: allpost.php?uploadsuccess");
-            } else {
-                echo "Your file is too big!!";
-            }
+    if(isset($_POST['insert'])) {
+        $name = $_POST['name'];
+        $title = $_POST['title'];
+        $text = $_POST['text'];
+        $file = $_FILES['file']['name'];
+        $user_id = $_SESSION['user_id'];
+
+    if(isset($_POST['insert'])) {
+        $img_name = basename($_FILES['file']['name']);
+        $tar_dir = "uploads/";
+        $target_file = $tar_dir . $img_name;
+        $uploadNow = 1;
+
+
+        $pdoQuery = "INSERT INTO request_message (name,title,text,file,user_id) VALUES (:name,:title,:text,:file,:user_id)";
+
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+            $msg = "File is uploaded!!";
         } else {
-            echo "There was an error uploading your file!!";
+            $msg = "File is not uploaded!!";
         }
-    } else {
-        echo "You cannot upload files of this type!!";
+
+        $pdoQuery_run = $conn->prepare($pdoQuery);
+
+        $pdoQuery_exec = $pdoQuery_run->execute(array(":name"=>$name, ":title"=>$title, ":text"=>$text, ":file"=>$file, ":user_id"=>$user_id ));
+        if ($pdoQuery_exec) {
+            echo 'Data Inserted!!';
+            header("location: admin.php?uploadsuccess");
+        } else {
+            echo 'Data Not Inserted!!';
+        }
     }
 }
+
+?>

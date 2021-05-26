@@ -21,7 +21,7 @@ h1 {
 
 
 <?php include_once 'layout/top.inc.php'; ?>
-<?php include_once 'layout/nav.inc.php'; ?>
+<?php include_once 'layout/nav.inc.admin.php'; ?>
 
 
 <h1>ALL POSTS</h1>
@@ -39,6 +39,6 @@ h1 {
 
 
 <script src="js/common.js"></script>
-<script src="js/allPost.js"></script>
+<script src="js/allPostAdmin.js"></script>
 
 <?php include_once 'layout/bottom.inc.php'; ?>

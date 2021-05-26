@@ -6,30 +6,19 @@
       
         <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <?php if (isset($_SESSION['logged_in'])): ?>
-            <li class="nav-item">
-              <a class="nav-link" href="admin.php">Your posts</a>
+        <?php if (isset($_SESSION['logged_in'])): ?>
+              <li class="nav-item">
+              <a class="nav-link" href="adminPage.php">Posts control</a>
             </li>
             <?php endif; ?>
-              <?php if (isset($_SESSION['logged_in'])): ?>
+            <?php if (isset($_SESSION['logged_in'])): ?>
               <li class="nav-item">
-              <a class="nav-link" href="allpost.php">All Posts</a>
-            </li>
-            <?php else: ?>
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
+              <a class="nav-link" href="allpostadmin.php">All Posts</a>
             </li>
             <?php endif; ?>
             <?php if (isset($_SESSION['logged_in'])): ?>
             <li class="nav-item">
               <a class="nav-link" href="logout.php">Logout</a>
-            </li>
-            <?php else: ?>
-              <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="adminLogin.php">Admin</a>
             </li>
             <?php endif; ?>
           </ul>
