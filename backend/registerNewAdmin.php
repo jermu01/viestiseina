@@ -25,16 +25,11 @@ try {
             'success' => 'Uusi käyttäjä on tallennettu!'
         );
     }
+
 } catch (PDOException $e) {
-    if (strpos($e->getMessage(), '1062 Duplicate entry')){
-        $data = array(
-            'error' => 'Käyttäjä on jo olemassa!'
-        );
-    } else {
-        $data = array(
-            'error' => 'Tapahtui joku virhe tallennuksessa!'
-        );
-    }
+    $data = array(
+        'error' => 'Tapahtui joku virhe!!'
+    );
 }
 
 header("Content-type: application/json;charset=utf-8");

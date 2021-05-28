@@ -4,14 +4,13 @@ session_start();
 
 $data = array();
 
-include_once 'pdo-connect.php';
-
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
+include_once 'pdo-connect.php';
+
 try {
-    $stmt = $conn->prepare("UPDATE request_message SET published = 1 WHERE id = :message_id;");
+    $stmt = $conn->prepare("DELETE FROM request_message WHERE id = :message_id;");
     $stmt->bindParam(':message_id', $id);
-    
 
     if ($stmt->execute() == false){
         $data = array(
@@ -19,7 +18,7 @@ try {
         );
     } else {
         $data = array(
-            'success' => 'DONE!!'
+            'success' => 'Delete successfull!!'
         );
     }
 

@@ -67,9 +67,8 @@ function deletePost(id) {
       data = JSON.parse(this.responseText);
       console.log(data);
     }
-    ajax.open("GET", "backend/deletePost.php?id=" + id);
+    ajax.open("GET", "backend/deletePostAdmin.php?id=" + id);
     ajax.send();
-  
   }
 
 
