@@ -23,7 +23,6 @@ $data = array();
     $text = $_POST['text'];
     $file = $_FILES['file']['name'];
     
-
     $img_name = basename($_FILES['file']['name']);
     $tar_dir = "uploads/";
     $target_file = $tar_dir . $img_name;
@@ -34,7 +33,7 @@ $data = array();
 try {
     $stmt = $conn->prepare("UPDATE request_message SET name = '$name', title = '$title', text = '$text', file = '$file' WHERE id = '$id' ");
 
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
         $msg = "File is uploaded!!";
     } else {
         $msg = "File is not uploaded!!";

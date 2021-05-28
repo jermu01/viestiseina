@@ -16,7 +16,7 @@ if (!$user_id){
     include_once 'pdo-connect.php';
 
     try {
-        $stmt = $conn->prepare("SELECT * FROM published_message");
+        $stmt = $conn->prepare("SELECT * FROM request_message");
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $data = $result;
