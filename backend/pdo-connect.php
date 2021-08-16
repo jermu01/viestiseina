@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$db_username = "root";
-$db_password = "";
+$servername = "it.esedu.fi";
+$db_username = "jere.karjalainen";
+$db_password = "JeKa565H";
 $dbname = "messagedb";
 
 try {
