@@ -15,7 +15,7 @@ function getAllPosts(){
   function showPosts(data){
     data.forEach(post => {
       let postHtml = `
-      <strong><div class="card border-primary mb-3" style="max-width: 20rem;">${post.created_at}</strong>
+      <strong><div class="card border-primary mb-3" style="max-width: 20rem;"></strong>
         <div class="card-header">${post.id}: ${post.name}</div>
         <div class="card-body">
           <h4 class="card-title">${post.title}</h4>
